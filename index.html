@@ -77,7 +77,7 @@
   .resume-frame{width:100%; height:820px; border:1px solid var(--line); border-radius:10px; background:#fff}
 
   /* CONTACT */
-  .contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .contact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
   .contact-grid .card{text-align:center}
   .contact-grid .card b{display:block; color:var(--navy); margin-bottom:4px}
 
@@ -98,6 +98,19 @@
     .resume-frame{height:560px}
   }
 </style>
+<script>
+  // Tries common file endings so photos load whatever their real extension is
+  var EXTS=['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG','.WEBP','.jpg.jpg','.jpg.webp','.jpg.png'];
+  function nextImg(img){
+    var i=parseInt(img.getAttribute('data-i')||'0',10)+1;
+    if(i<EXTS.length){ img.setAttribute('data-i',i); img.src='images/'+img.getAttribute('data-base')+EXTS[i]; return; }
+    img.onerror=null;
+    var fb=img.getAttribute('data-fb');
+    if(fb==='avatar'){ img.outerHTML='<div class="avatar-fallback">BG</div>'; }
+    else if(fb==='hide'){ (img.closest('figure')||img).remove(); }
+    else { var t=document.getElementById(fb); if(t){ img.parentElement.innerHTML=t.innerHTML; } }
+  }
+</script>
 </head>
 <body>
 
@@ -120,8 +133,7 @@
 <header class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <img class="avatar" src="images/headshot.jpg" alt="Headshot of Bemnet Gnega"
-           onerror="this.outerHTML='<div class=&quot;avatar-fallback&quot;>BG</div>'">
+      <img class="avatar" src="images/headshot.jpg" data-base="headshot" data-fb="avatar" alt="Headshot of Bemnet Gnega" onerror="nextImg(this)">
     </div>
     <div>
       <h1>Bemnet Gnega</h1>
@@ -151,8 +163,7 @@
         <p>I'm a member of Georgia Tech's <strong>EcoCAR</strong> team through the Vertically Integrated Projects (VIP) program. EcoCAR is a national student competition where university teams engineer an electrified vehicle, and our team is starting a new competition cycle this year. I want to work on the electrical and propulsion side of the vehicle, where it connects directly to my threads. Like an internship, EcoCAR gives me real engineering experience on a large team and helps me figure out which parts of EV engineering I enjoy most.</p>
       </div>
       <figure class="graphic">
-        <img src="images/ecocar.jpg" alt="EcoCAR team at Georgia Tech"
-             onerror="this.parentElement.innerHTML='<svg viewBox=&quot;0 0 400 260&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><rect width=&quot;400&quot; height=&quot;260&quot; rx=&quot;10&quot; fill=&quot;#0f2340&quot;/><g fill=&quot;none&quot; stroke=&quot;#b3a369&quot; stroke-width=&quot;5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M70 165 L95 120 Q105 103 125 103 L265 103 Q285 103 300 118 L335 150 L345 165 Z&quot;/><circle cx=&quot;125&quot; cy=&quot;170&quot; r=&quot;22&quot; fill=&quot;#0f2340&quot;/><circle cx=&quot;290&quot; cy=&quot;170&quot; r=&quot;22&quot; fill=&quot;#0f2340&quot;/><path d=&quot;M200 60 L185 88 L203 88 L190 115&quot; stroke=&quot;#d8c98f&quot;/></g><text x=&quot;200&quot; y=&quot;228&quot; text-anchor=&quot;middle&quot; fill=&quot;#ffffff&quot; font-family=&quot;Segoe UI,Arial&quot; font-size=&quot;20&quot; font-weight=&quot;700&quot;>EcoCAR &#183; Georgia Tech VIP</text></svg><figcaption>Electrified vehicle engineering with the EcoCAR team</figcaption>'">
+        <img src="images/ecocar.jpg" data-base="ecocar" data-fb="ecocar-fb" alt="EcoCAR team at Georgia Tech" onerror="nextImg(this)">
         <figcaption>Working with Georgia Tech's EcoCAR team</figcaption>
       </figure>
     </div>
@@ -228,7 +239,7 @@
         <p>The biggest lesson so far is that a "simple" upgrade forces you to understand an entire system, from USB protocols to automotive power quality. This project fits right into my focus on electric energy systems and circuit technology. It also taught me to read datasheets and reference designs critically, and to check my own assumptions. More than once, my first mental model of how the power and data paths connect turned out to be wrong, and correcting it made the design better.</p>
 
         <div class="photo-grid">
-          <figure style="margin:0"><img src="images/project2.jpg" alt="USB-C module prototype" onerror="this.parentElement.remove()"><figcaption>USB-C module prototype</figcaption></figure>
+          <figure style="margin:0"><img src="images/project2.jpg" data-base="project2" data-fb="hide" alt="USB-C module prototype" onerror="nextImg(this)"><figcaption>USB-C module prototype</figcaption></figure>
         </div>
       </div>
     </article>
@@ -279,9 +290,9 @@
         <div class="chips"><span class="chip">Arduino</span><span class="chip">Motor Drivers</span><span class="chip">Servo Control</span><span class="chip">CAD</span><span class="chip">3D Printing</span><span class="chip">Bench Testing</span></div>
 
         <div class="photo-grid">
-          <figure style="margin:0"><img src="images/project4.jpg" alt="Six-wheel rover prototype in the lab" onerror="this.parentElement.remove()"><figcaption>The rover prototype</figcaption></figure>
-          <figure style="margin:0"><img src="images/project3.jpg" alt="Rover electronics during bench testing" onerror="this.parentElement.remove()"><figcaption>Wiring and bench-testing the motor drivers</figcaption></figure>
-          <figure style="margin:0"><img src="images/project1.jpg" alt="Presenting the rover and soil colorimeter" onerror="this.parentElement.remove()"><figcaption>Presenting the rover with the soil colorimeter</figcaption></figure>
+          <figure style="margin:0"><img src="images/rover.jpg" data-base="rover" data-fb="hide" alt="Six-wheel rover prototype in the lab" onerror="nextImg(this)"><figcaption>The rover prototype</figcaption></figure>
+          <figure style="margin:0"><img src="images/project3.jpg" data-base="project3" data-fb="hide" alt="Rover electronics during bench testing" onerror="nextImg(this)"><figcaption>Wiring and bench-testing the motor drivers</figcaption></figure>
+          <figure style="margin:0"><img src="images/project4.jpg" data-base="project4" data-fb="hide" alt="Presenting the rover and soil colorimeter" onerror="nextImg(this)"><figcaption>Presenting the rover with the soil colorimeter</figcaption></figure>
         </div>
       </div>
     </article>
@@ -374,12 +385,12 @@
     <p>I'm always happy to talk about internships, EV and power electronics, or projects I'm working on. Feel free to reach out.</p>
     <div class="contact-grid">
       <div class="card"><b>Email</b><a href="mailto:bemnetgnega@gmail.com">bemnetgnega@gmail.com</a></div>
-      <div class="card"><b>LinkedIn</b><a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/your-profile</a></div>
       <div class="card"><b>Location</b>Atlanta, Georgia</div>
     </div>
   </div>
 </section>
 
+<template id="ecocar-fb"><svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="260" rx="10" fill="#0f2340"/><g fill="none" stroke="#b3a369" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M70 165 L95 120 Q105 103 125 103 L265 103 Q285 103 300 118 L335 150 L345 165 Z"/><circle cx="125" cy="170" r="22" fill="#0f2340"/><circle cx="290" cy="170" r="22" fill="#0f2340"/><path d="M200 60 L185 88 L203 88 L190 115" stroke="#d8c98f"/></g><text x="200" y="228" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,Arial" font-size="20" font-weight="700">EcoCAR · Georgia Tech VIP</text></svg><figcaption>Electrified vehicle engineering with the EcoCAR team</figcaption></template>
 <footer>&copy; 2026 Bemnet Gnega &middot; Electrical Engineering &middot; Georgia Institute of Technology</footer>
 </body>
 </html>

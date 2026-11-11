@@ -1,0 +1,7 @@
+Drop your photos in this folder with EXACTLY these names (lowercase, .jpg):
+  headshot.jpg  - your professional photo (replaces the "BG" circle)
+  ecocar.jpg    - you / the team at EcoCAR (replaces the car graphic)
+  project1.jpg  - the RAV4 USB module or Camry port
+  project2.jpg  - your breadboard prototype (add later, before the showcase)
+Any photo you skip just won't show, so the site never looks broken.
+Also put your resume in the MAIN folder (next to index.html) named: resume.pdf

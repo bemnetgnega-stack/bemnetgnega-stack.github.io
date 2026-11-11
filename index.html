@@ -155,12 +155,12 @@
 
     <p>I'm a third-year student at Georgia Tech working toward my Bachelor of Science in Electrical Engineering.</p>
 
-    <p>When I first got to Georgia Tech, I didn't know exactly what kind of engineer I wanted to be. I even declared my first two specialization threads, Signal &amp; Information Processing and Bioengineering, without much thought. Instead of sticking with a choice I wasn't sure about, I spent the semester exploring. My classes and an internship taught me something important about myself: I'm happiest working with physical systems I can build, measure, and troubleshoot, not writing heavy software or optimizing algorithms. That's why I re-focused my degree on <strong>Electric Energy Systems</strong> and <strong>Circuit Technology</strong>.</p>
+    <p>I'm drawn to the hands-on side of electrical engineering: building circuits, wiring systems together, testing them, and figuring out what went wrong when they don't work the first time. Through my coursework and an internship, I've learned that I do my best work with physical hardware I can measure and improve. That's why I'm focusing my degree on Electric Energy Systems and Circuit Technology, the areas behind everything from the power grid to electric vehicles.</p>
 
     <div class="two">
       <div>
         <h3>EcoCAR</h3>
-        <p>I'm a member of Georgia Tech's <strong>EcoCAR</strong> team through the Vertically Integrated Projects (VIP) program. EcoCAR is a national student competition where university teams engineer an electrified vehicle, and our team is starting a new competition cycle this year. I want to work on the electrical and propulsion side of the vehicle, where it connects directly to my threads. Like an internship, EcoCAR gives me real engineering experience on a large team and helps me figure out which parts of EV engineering I enjoy most.</p>
+        <p>I'm a member of Georgia Tech's EcoCAR team through the Vertically Integrated Projects (VIP) program. EcoCAR is a national student competition where university teams engineer an electrified vehicle, and our team is starting a new competition cycle this year. I want to work on the electrical and propulsion side of the vehicle, where it connects directly to my threads. Like an internship, EcoCAR gives me real engineering experience on a large team and helps me figure out which parts of EV engineering I enjoy most.</p>
       </div>
       <figure class="graphic">
         <img src="images/ecocar.jpg" data-base="ecocar" data-fb="ecocar-fb" alt="EcoCAR team at Georgia Tech" onerror="nextImg(this)">
@@ -169,7 +169,7 @@
     </div>
 
     <h3>What Drives Me</h3>
-    <p>What gets me most excited is a clear, real-world problem I can fix with hardware. My Discovery Project is a good example. The factory USB port in my car charges my phone painfully slowly, so I decided to design a fast-charging USB-C replacement that still keeps wired Apple CarPlay working. Projects like that remind me why I chose engineering: you notice something that could be better, you learn what you need to learn, and you build it.</p>
+    <p>I'm driven by the chance to take an idea off the page and turn it into something that actually works. Whether it's a rover built to carry equipment across a field or a team effort on an electrified vehicle, I like projects where the results are real and testable. I'm also excited about where energy and transportation are headed. Electric vehicles, faster charging, and smarter power systems are changing how people get around, and I want to be one of the engineers building that future. Every project teaches me something new, and I'm always looking for the next problem worth solving.</p>
   </div>
 </section>
 
@@ -188,7 +188,7 @@
       </div>
       <div class="project-body">
         <h4>The Problem</h4>
-        <p>My 2019 Toyota Camry has a factory USB-A port that supports wired Apple CarPlay but charges a modern phone very slowly. With navigation and music running, my phone can barely hold its charge on a long drive. Aftermarket USB-C chargers that plug into the 12 V socket charge quickly, but they don't carry data, so they can't run CarPlay. I wanted one port that does both: <strong>fast USB-C charging and full CarPlay data</strong>, in a module that fits where the factory port was.</p>
+        <p>My 2019 Toyota Camry has a factory USB-A port that supports wired Apple CarPlay but charges a modern phone very slowly. With navigation and music running, my phone can barely hold its charge on a long drive. Aftermarket USB-C chargers that plug into the 12 V socket charge quickly, but they don't carry data, so they can't run CarPlay. I wanted one port that does both: fast USB-C charging and full CarPlay data, in a module that fits where the factory port was.</p>
 
         <h4>The Process</h4>
         <p>I started by researching how phone charging actually works. Older USB-A ports signal charging current over the same D+/D&minus; data lines that CarPlay needs, which is why a port can't easily be both a fast charger and a data connection. USB-C solves this with dedicated configuration (CC) pins that use the USB Power Delivery protocol to negotiate higher power on a separate channel. That leaves the data lines free for CarPlay.</p>
@@ -217,10 +217,10 @@
 
         <h4>Key Design Decisions</h4>
         <ul class="tight">
-          <li><strong>One port, not two.</strong> I first wanted two USB-C ports, but I narrowed it to a single port so the prototype stays focused and testable.</li>
-          <li><strong>Buck-boost instead of a fixed 5 V converter.</strong> A simple 5 V step-down converter limits USB-C to about 15 W. Real fast charging needs the higher voltages USB Power Delivery can request, so the controller has to adjust its output voltage, not just drop 12 V to 5 V.</li>
-          <li><strong>Automotive-grade parts.</strong> A car's interior gets extremely hot, so I chose a controller rated to AEC-Q100 Grade 1, the automotive standard for parts that operate up to 125 &deg;C.</li>
-          <li><strong>Breakout board for prototyping.</strong> The controller comes on an evaluation board, so I can prototype on a breadboard without soldering tiny surface-mount parts.</li>
+          <li>One port, not two. I first wanted two USB-C ports, but I narrowed it to a single port so the prototype stays focused and testable.</li>
+          <li>Buck-boost instead of a fixed 5 V converter. A simple 5 V step-down converter limits USB-C to about 15 W. Real fast charging needs the higher voltages USB Power Delivery can request, so the controller has to adjust its output voltage, not just drop 12 V to 5 V.</li>
+          <li>Automotive-grade parts. A car's interior gets extremely hot, so I chose a controller rated to AEC-Q100 Grade 1, the automotive standard for parts that operate up to 125 &deg;C.</li>
+          <li>Breakout board for prototyping. The controller comes on an evaluation board, so I can prototype on a breadboard without soldering tiny surface-mount parts.</li>
         </ul>
 
         <h4>Test Plan</h4>
@@ -252,10 +252,10 @@
       </div>
       <div class="project-body">
         <h4>The Problem</h4>
-        <p>Agricultural fieldwork like soil testing usually means walking equipment out to every spot by hand. I wanted to build a mobile platform that could carry that equipment across a field instead. I designed a six-wheel, remote-controlled rover with a modular frame that can carry different tools. My design targets were a <strong>35 lb payload</strong> and a <strong>five-hour runtime</strong>. I led the rover build and collaborated with Ayman, who developed a soil colorimeter as an example of the kind of equipment the rover could carry. We presented the two projects together.</p>
+        <p>Agricultural fieldwork like soil testing usually means walking equipment out to every spot by hand. I wanted to build a mobile platform that could carry that equipment across a field instead. I designed a six-wheel, remote-controlled rover with a modular frame that can carry different tools. My design targets were a 35 lb payload and a two-hour runtime. I led the rover build and collaborated with Ayman, who developed a soil colorimeter as an example of the kind of equipment the rover could carry. We presented the two projects together.</p>
 
         <h4>The Process</h4>
-        <p>My work focused on the rover's electronics, controls, and prototyping. An <strong>Arduino Mega 2560</strong> reads commands from a FlySky FS-iA6B radio receiver. Three <strong>TB6612FNG</strong> motor drivers run six 12 V DC gear motors, one per wheel. A <strong>PCA9685</strong> servo board controls four steering servos, which give the rover four-wheel steering for tighter turns in crop rows. The frame is built from aluminum T-slot extrusion with 3D-printed parts and flexible TPU tires.</p>
+        <p>My work focused on the rover's electronics, controls, and prototyping. An Arduino Mega 2560 reads commands from a FlySky FS-iA6B radio receiver. Three TB6612FNG motor drivers run six 12 V DC gear motors, one per wheel. A PCA9685 servo board controls four steering servos, which give the rover four-wheel steering for tighter turns in crop rows. The frame is built from aluminum T-slot extrusion with 3D-printed parts and flexible TPU tires.</p>
         <p>I wired all six drive motors and four steering servos, worked on the Arduino control code, calibrated the steering, and troubleshot the motor drivers. For testing, I powered the rover from a bench supply at about 11.1 V with a 5 A current limit, so a wiring mistake couldn't damage the parts. The onboard power plan uses two 3-cell LiPo packs in parallel, with a buck converter stepping the voltage down for the lower-voltage electronics.</p>
 
         <figure class="graphic">
@@ -289,6 +289,20 @@
         <p>If I built it again, I'd secure the wiring earlier, design a custom PCB to simplify the connections, and measure current under load before choosing the final battery and motor drivers. The biggest things I learned were how to wire and troubleshoot a multi-motor system, how to calibrate steering servos, and how to redesign a mechanical part after testing exposes a weakness.</p>
         <div class="chips"><span class="chip">Arduino</span><span class="chip">Motor Drivers</span><span class="chip">Servo Control</span><span class="chip">CAD</span><span class="chip">3D Printing</span><span class="chip">Bench Testing</span></div>
 
+        <figure class="graphic" id="rover-video" style="margin:20px 0">
+          <video controls playsinline preload="metadata" style="width:100%;max-height:520px;border-radius:10px;background:#000">
+            <source src="images/rover.mp4" type="video/mp4">
+            <source src="images/rover.MP4" type="video/mp4">
+            <source src="images/rover.webm" type="video/webm">
+            <source src="images/rover.mov" type="video/mp4">
+            <source src="images/rover.MOV" type="video/mp4">
+          </video>
+          <figcaption>The rover in action. (Video taken by me.)</figcaption>
+        </figure>
+        <script>
+          (function(){var v=document.querySelector('#rover-video video');var srcs=v.querySelectorAll('source');
+            srcs[srcs.length-1].addEventListener('error',function(){document.getElementById('rover-video').remove();});})();
+        </script>
         <div class="photo-grid">
           <figure style="margin:0"><img src="images/rover.jpg" data-base="rover" data-fb="hide" alt="Six-wheel rover prototype in the lab" onerror="nextImg(this)"><figcaption>The rover prototype</figcaption></figure>
           <figure style="margin:0"><img src="images/project3.jpg" data-base="project3" data-fb="hide" alt="Rover electronics during bench testing" onerror="nextImg(this)"><figcaption>Wiring and bench-testing the motor drivers</figcaption></figure>

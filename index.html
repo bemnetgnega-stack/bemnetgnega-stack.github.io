@@ -101,9 +101,10 @@
 <script>
   // Tries common file endings so photos load whatever their real extension is
   var EXTS=['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG','.WEBP','.jpg.jpg','.jpg.webp','.jpg.png'];
+  var DIRS=['images/',''];
   function nextImg(img){
     var i=parseInt(img.getAttribute('data-i')||'0',10)+1;
-    if(i<EXTS.length){ img.setAttribute('data-i',i); img.src='images/'+img.getAttribute('data-base')+EXTS[i]; return; }
+    if(i<EXTS.length*DIRS.length){ img.setAttribute('data-i',i); img.src=DIRS[Math.floor(i/EXTS.length)]+img.getAttribute('data-base')+EXTS[i%EXTS.length]; return; }
     img.onerror=null;
     var fb=img.getAttribute('data-fb');
     if(fb==='avatar'){ img.outerHTML='<div class="avatar-fallback">BG</div>'; }
@@ -292,6 +293,7 @@
         <figure class="graphic" id="rover-video" style="margin:20px 0">
           <video controls playsinline preload="metadata" style="width:100%;max-height:520px;border-radius:10px;background:#000">
             <source src="images/rover.mp4" type="video/mp4">
+            <source src="rover.mp4" type="video/mp4">
             <source src="images/rover.MP4" type="video/mp4">
             <source src="images/rover.webm" type="video/webm">
             <source src="images/rover.mov" type="video/mp4">
